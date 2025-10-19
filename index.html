@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Chúc Mừng 20/10</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            /* 🌸 Màu chủ đạo của phong bì & tim */
+            --color-env: #f9b6c9;
+            /* Hồng pastel nhẹ cho thân phong bì */
+            --color-env2: #f28ca7;
+            /* Hồng đậm hơn cho nắp phong bì */
+            --color-flap: #f493ad;
+            /* Nắp thư chuyển sắc */
+            --color-heart: #ff6b81;
+            /* Tim đỏ hồng rực */
+
+            /* 🌼 Nền và không gian */
+            --color-bg: #fff0f3;
+            /* Nền sáng dịu, không quá trắng */
+            --color-shadow: rgba(0, 0, 0, 0.1);
+            /* Đổ bóng nhẹ */
+            --color-glow: rgba(255, 182, 193, 0.6);
+            /* Ánh sáng hồng mờ */
+
+            /* ✉️ Kích thước phong bì */
+            --env-width: 280px;
+            --env-height: 220px;
+            --env-border-radius: 8px;
+
+            /* 💖 Tim */
+            --heart-width: 50px;
+
+            /* ✨ Animation speed */
+            --anim-speed: 1.2s;
+        }
+
+
+        body {
+            background-color: var(--color-bg);
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 25%, #ffd4e8 50%, #ffe0f0 75%, #ffeef8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .bg-animation {
+            position: fixed;
+            /* Cố định vị trí */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Không chặn click chuột */
+            z-index: 0;
+            /* Nằm phía sau phong bì */
+            overflow: hidden;
+            /* Ẩn phần thừa ra ngoài */
+        }
+
+        .falling-petal {
+            position: absolute;
+            top: -50px;
+            /* Bắt đầu từ trên cùng, ngoài màn hình */
+            font-size: 2rem;
+            /* Kích thước hoa 2rem */
+            opacity: 0.8;
+            /* Trong suốt 80% */
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotateZ(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotateZ(360deg);
+            }
+        }
+
+        .light-bubble {
+            position: absolute;
+            border-radius: 50%;
+            /* Hình tròn */
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.6), transparent);
+            animation: float-up linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.3;
+                /* Mờ dần ở giữa */
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                /* Bay lên và to ra */
+                opacity: 0;
+            }
+        }
+
+        .rotating-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 105, 180, 0.2);
+            /* Viền hồng trong suốt */
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+                /* Xoay 1 vòng */
+            }
+        }
+
+        .twinkle-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+            /* Ánh sáng hồng */
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .light-wave {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.3), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.2);
+                /* Phình to */
+                opacity: 0.2;
+                /* Mờ đi */
+            }
+        }
+
+
+        .envelope-wrapper {
+            height: calc(var(--env-height) + 200px);
+        }
+
+        #envelope {
+            position: relative;
+            overflow: visible;
+            width: var(--env-width);
+            height: var(--env-height);
+            border-bottom-left-radius: var(--env-border-radius);
+            border-bottom-right-radius: var(--env-border-radius);
+            margin-left: auto;
+            margin-right: auto;
+            top: 250px;
+            background-color: var(--color-flap);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            animation: tran 3s infinite;
+        }
+
+        @keyframes tran {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(20px);
+
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .letter {
+            position: relative;
+            background-color: #fff;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: calc(var(--env-height) * 0.9);
+            height: 90%;
+            top: 10%;
+            border-radius: var(--env-border-radius);
+            box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+            transition: transform 0.4s ease;
+            padding: 10px 12px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        /* Phần trang trí đầu thư */
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to right, #ff9ff3, #feca57, #ff9ff3);
+            opacity: 0.3;
+        }
+
+        .letter.full {
+            position: absolute;
+            width: 90vw;
+            max-width: 400px;
+            height: 85vh;
+            max-height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 100;
+            border-radius: 10px;
+            border: 2px solid #ff9ff3;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .letter-content {
+            padding: 50px 20px 30px;
+            opacity: 0;
+            pointer-events: none;
+            text-align: center;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .letter.full .letter-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .letter-content h1 {
+            color: #e84393;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter-content p {
+            color: #2d3436;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: #d63031;
+            font-size: 1.1rem;
+        }
+
+
+        /* Hiệu ứng hoa và trái tim */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 2rem;
+        }
+
+        .flower {
+            animation: float 3s ease-in-out forwards;
+        }
+
+        .heart {
+            animation: float 3s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .stage-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hiệu ứng lấp lánh */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 1s ease-out forwards;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+
+
+
+        /* Tối ưu cho mobile */
+        @media (max-width: 480px) {
+            .letter-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .letter-content p {
+                font-size: 0.95rem;
+            }
+
+            .envelope-top {
+                border-left-width: calc(45vw - 15px);
+                border-right-width: calc(45vw - 15px);
+                border-bottom-width: 120px;
+            }
+
+
+
+        }
+
+        .open .flap {
+            transform: rotateX(180deg);
+            transition: transform 0.4s ease, z-index 0.6s;
+            z-index: 1;
+        }
+
+        .close .flap {
+            transform: rotateX(0deg);
+            transition: transform 0.4s 0.6s ease, z-index 1s;
+            z-index: 5;
+        }
+
+        .close .letter {
+            transform: translateY(0px);
+            transition: transform 0.4s ease, z-index 1s;
+            z-index: 1;
+        }
+
+        .open .letter {
+            transform: translateY(calc(-1 * (var(--env-height) / 3)));
+            transition: transform 0.4s 0.6s ease, z-index 0.6s;
+            z-index: 2;
+        }
+
+        .open .pocket2 {
+            transform: translateY(0%) rotateX(180deg);
+        }
+
+        .front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            z-index: 3;
+        }
+
+        .flap {
+            border-left: calc(var(--env-width) / 2) solid transparent;
+            border-right: calc(var(--env-width) / 2) solid transparent;
+            border-bottom: calc((var(--env-height) / 2) - 8) solid transparent;
+            border-top: calc((var(--env-height) / 2) + 8) solid var(--color-flap);
+            transform-origin: top;
+            pointer-events: none;
+        }
+
+        .pocket {
+            border-left: calc(var(--env-width) / 2) solid var(--color-env);
+            border-right: calc(var(--env-width) / 2) solid var(--color-env);
+            border-bottom: calc(var(--env-height) / 2) solid var(--color-env2);
+            border-top: calc(var(--env-height) / 2) solid transparent;
+            border-bottom-left-radius: var(--env-border-radius);
+            border-bottom-right-radius: var(--env-border-radius);
+            z-index: 40;
+        }
+
+        .pocket2 {
+            position: absolute;
+            border-left: calc(var(--env-width) / 2) solid transparent;
+            border-right: calc(var(--env-width) / 2) solid transparent;
+            border-bottom: calc(var(--env-height) / 2) solid transparent;
+            border-top: calc(var(--env-height) / 2) solid var(--color-env2);
+            border-bottom-left-radius: var(--env-border-radius);
+            border-bottom-right-radius: var(--env-border-radius);
+            transform-origin: top;
+            transform: translateY(0%) rotateX(0deg);
+            transition: transform 0.8s ease, z-index 0.6s;
+            z-index: 2;
+        }
+
+        .hearts {
+            position: absolute;
+            top: calc(var(--env-height) / 2);
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            pointer-events: none;
+        }
+
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: var(--heart-width);
+            top: 0;
+            width: var(--heart-width);
+            height: calc(var(--heart-width) * 1.6);
+            background: var(--color-heart);
+            border-radius: var(--heart-width) var(--heart-width) 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            pointer-events: none;
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .close .heart {
+            opacity: 0;
+            animation: none;
+        }
+
+        .a1 {
+            left: 20%;
+            transform: scale(0.6);
+            opacity: 1;
+            animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+            animation-fill-mode: forwards;
+            animation-delay: 0.7s;
+        }
+
+        .a2 {
+            left: 55%;
+            transform: scale(1);
+            opacity: 1;
+            animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+            animation-fill-mode: forwards;
+            animation-delay: 0.7s;
+        }
+
+        .a3 {
+            left: 10%;
+            transform: scale(0.8);
+            opacity: 1;
+            animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+            animation-fill-mode: forwards;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes slideUp {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: -600px;
+            }
+        }
+
+        @keyframes sideSway {
+            0% {
+                margin-left: 0px;
+            }
+
+            100% {
+                margin-left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <div class="envelope-wrapper" id="envelopeWrapper">
+
+        <div id="envelope" class="close">
+            <div class="front">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+            </div>
+            <div class="pocket2"></div>
+            <div class="letter" id="letter">
+                <div class="letter-content">
+                    <h1>🌸Chúc Mừng 20/10🌸</h1>
+                    <p>Gửi đến toàn thể các cô gái xinh đẹp của CLB YoungMusic,</p>
+                    <p>Chúc các bạn luôn tươi trẻ, xinh đẹp như những nốt nhạc vui,<br>
+                        Nụ cười luôn rạng rỡ trên môi,<br>
+                        Hạnh phúc mỗi ngày, mỗi giờ.</p>
+                    <p>Mong rằng trong hành trình sắp tới, <br>
+                        các bạn sẽ luôn tự tin, rực rỡ và tỏa sáng — <br>
+                        giống như chính giai điệu mà YoungMusic tạo nên.</p>
+                    <p>💖 Thân gửi yêu thương 💖 </p>
+                    <div class="signature">Anh em YoungMusic</div>
+                </div>
+            </div>
+            <div class="hearts">
+                <div class="heart a1"></div>
+                <div class="heart a2"></div>
+                <div class="heart a3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stage-indicator" id="stageIndicator">
+        Nhấn vào lá thư để mở...
+    </div>
+
+    <script>
+        let stage = 0;
+        const envelopeWrapper = document.getElementById('envelopeWrapper');
+        const letter = document.getElementById('letter');
+        const stageIndicator = document.getElementById('stageIndicator');
+        const envelope = document.getElementById('envelope');
+        const bgAnimation = document.getElementById('bgAnimation');
+
+        function createFallingPetals() {
+            const petals = ['🌸', '🌺', '🌼', '💮', '🏵️'];  // 5 loại hoa
+
+            for (let i = 0; i < 15; i++) {  // Tạo 15 bông hoa
+                const petal = document.createElement('div');
+                petal.className = 'falling-petal';
+                petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+
+                // Random vị trí ngang (0-100%)
+                petal.style.left = Math.random() * 100 + '%';
+
+                // Random tốc độ rơi (5-10 giây)
+                petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+                // Random thời gian bắt đầu (0-5 giây)
+                petal.style.animationDelay = Math.random() * 5 + 's';
+
+                // Random kích thước (1.5-2.5rem)
+                petal.style.fontSize = (1.5 + Math.random() * 1) + 'rem';
+
+                bgAnimation.appendChild(petal);  // Thêm vào container
+            }
+        }
+
+        function createLightBubbles() {
+            for (let i = 0; i < 8; i++) {  // Tạo 8 bong bóng
+                const bubble = document.createElement('div');
+                bubble.className = 'light-bubble';
+
+                // Vị trí X random
+                bubble.style.left = Math.random() * 100 + '%';
+
+                // Bắt đầu từ dưới màn hình
+                bubble.style.bottom = '-100px';
+
+                // Kích thước random (50-150px)
+                bubble.style.width = (50 + Math.random() * 100) + 'px';
+                bubble.style.height = bubble.style.width;  // Hình tròn
+
+                // Tốc độ bay lên (8-12 giây)
+                bubble.style.animationDuration = (8 + Math.random() * 4) + 's';
+
+                // Delay bắt đầu (0-3 giây)
+                bubble.style.animationDelay = Math.random() * 3 + 's';
+
+                bgAnimation.appendChild(bubble);
+            }
+        }
+
+        function createRotatingCircles() {
+            const positions = [
+                { top: '10%', left: '10%', size: 150 },      // Góc trên trái
+                { top: '20%', right: '15%', size: 200 },     // Góc trên phải
+                { bottom: '15%', left: '20%', size: 180 },   // Góc dưới trái
+                { bottom: '25%', right: '10%', size: 120 }   // Góc dưới phải
+            ];
+
+            positions.forEach((pos, index) => {
+                const circle = document.createElement('div');
+                circle.className = 'rotating-circle';
+
+                // Set kích thước
+                circle.style.width = pos.size + 'px';
+                circle.style.height = pos.size + 'px';
+
+                // Set vị trí
+                if (pos.top) circle.style.top = pos.top;
+                if (pos.bottom) circle.style.bottom = pos.bottom;
+                if (pos.left) circle.style.left = pos.left;
+                if (pos.right) circle.style.right = pos.right;
+
+                // Tốc độ xoay khác nhau (15s, 20s, 25s, 30s)
+                circle.style.animationDuration = (15 + index * 5) + 's';
+
+                // Đổi chiều xoay (vòng chẵn thuận, lẻ nghịch)
+                circle.style.animationDirection = index % 2 === 0 ? 'normal' : 'reverse';
+
+                bgAnimation.appendChild(circle);
+            });
+        }
+
+        function createTwinkleStars() {
+            for (let i = 0; i < 30; i++) {  // 30 ngôi sao
+                const star = document.createElement('div');
+                star.className = 'twinkle-star';
+
+                // Vị trí random toàn màn hình
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+
+                // Delay random (0-2 giây)
+                star.style.animationDelay = Math.random() * 2 + 's';
+
+                // Chu kỳ nhấp nháy (1.5-2.5 giây)
+                star.style.animationDuration = (1.5 + Math.random() * 1) + 's';
+
+                bgAnimation.appendChild(star);
+            }
+        }
+
+        function createLightWaves() {
+            const waves = [
+                { top: '5%', left: '5%' },       // Trên trái
+                { top: '60%', right: '10%' },    // Giữa phải
+                { bottom: '10%', left: '15%' }   // Dưới trái
+            ];
+
+            waves.forEach((pos, index) => {
+                const wave = document.createElement('div');
+                wave.className = 'light-wave';
+
+                // Set vị trí
+                if (pos.top) wave.style.top = pos.top;
+                if (pos.bottom) wave.style.bottom = pos.bottom;
+                if (pos.left) wave.style.left = pos.left;
+                if (pos.right) wave.style.right = pos.right;
+
+                // Delay khác nhau (0s, 1.3s, 2.6s)
+                wave.style.animationDelay = index * 1.3 + 's';
+
+                bgAnimation.appendChild(wave);
+            });
+        }
+
+        // Khởi tạo tất cả background animations
+        createFallingPetals();
+        createLightBubbles();
+        createRotatingCircles();
+        createTwinkleStars();
+        createLightWaves();
+
+        // Giai đoạn 1: Hiện phong bì từ dưới lên bằng GSAP
+        gsap.to(envelopeWrapper, {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // Tạo hiệu ứng hoa và trái tim
+        function createParticles(type, count) {
+            const symbols = type === 'flower' ? ['🌸', '🌺', '🌼', '🌻', '🌷'] : ['❤️', '💕', '💖', '💗', '💝'];
+
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = `particle ${type}`;
+                    particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.top = window.innerHeight + 'px';
+                    document.body.appendChild(particle);
+
+                    setTimeout(() => particle.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Tạo hiệu ứng lấp lánh
+        function createSparkles(x, y) {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = x + (Math.random() - 0.5) * 100 + 'px';
+                    sparkle.style.top = y + (Math.random() - 0.5) * 100 + 'px';
+                    document.body.appendChild(sparkle);
+
+                    setTimeout(() => sparkle.remove(), 1000);
+                }, i * 50);
+            }
+        }
+
+        // Xử lý sự kiện click
+        envelopeWrapper.addEventListener('click', function (e) {
+            if (stage === 0) {
+                openEnvelope();
+                createParticles('flower', 8);
+                createSparkles(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
+                stageIndicator.textContent = 'Nhấn tiếp để đọc thư...';
+
+                stage = 1;
+            } else if (stage === 1) {
+                // Giai đoạn 3: Hiện toàn bộ nội dung lá thư
+                letter.classList.remove('open');
+
+                // BƯỚC SỬA: Di chuyển lá thư ra khỏi phong bì, làm con của <body>
+                document.body.appendChild(letter);
+
+                letter.classList.add('full');
+                createParticles('heart', 12);
+                createSparkles(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
+                gsap.set(letter, {
+                    scale: 0.6,
+                    y: 200,
+                    opacity: 0,
+                    zIndex: 100
+                });
+                gsap.to(letter, {
+                    scale: 1,
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    ease: "back.out(1.7)"
+                });
+
+                // Hiệu ứng xuất hiện nội dung
+                gsap.from('.letter-content h1', {
+                    y: -30,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.3
+                });
+
+                gsap.from('.letter-content p', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.15,
+                    delay: 0.6
+                });
+
+                gsap.to(stageIndicator, {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        stageIndicator.style.display = 'none';
+                    }
+                });
+
+                stage = 2;
+            }
+            // } else if (stage === 2) {
+            //     envelope.classList.remove('open');
+            //     envelope.classList.add('close');
+            //     letter.classList.remove('full');
+            //     stageIndicator.style.display = 'block';
+            //     stageIndicator.textContent = 'Nhấn vào lá thư để mở...';
+            //     gsap.to(stageIndicator, { opacity: 1, duration: 0.5 });
+            //     stage = 0;
+
+            // }
+        });
+
+        // Tạo hiệu ứng hoa rơi ngẫu nhiên
+        setInterval(() => {
+            if (stage > 0) {
+                const particle = document.createElement('div');
+                particle.className = 'particle flower';
+                particle.textContent = ['🌸', '🌺', '✨'][Math.floor(Math.random() * 3)];
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.top = '-50px';
+                document.body.appendChild(particle);
+
+                gsap.to(particle, {
+                    y: window.innerHeight + 100,
+                    rotation: Math.random() * 360,
+                    duration: 3 + Math.random() * 2,
+                    ease: "none",
+                    onComplete: () => particle.remove()
+                });
+            }
+        }, 1500);
+        function openEnvelope() {
+            envelope.classList.add('open');
+            envelope.classList.remove('close');
+        }
+    </script>
+</body>
+
+</html>
